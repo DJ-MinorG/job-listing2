@@ -7,11 +7,15 @@
       <td>
         title
       </td>
-      <td>
-        #
-      </td>
+
       <td>
         Created by
+      </td>
+      <td>
+        Hidden/Publish
+      </td>
+      <td>
+
       </td>
     </tr>
 
@@ -24,9 +28,15 @@
       <%= job.created_at %>
     </td>
     <td>
+      <% if job.is_hidden %>
+      <%= link_to("Hidden",is_hidden_admin_job_path(job), :method => :post, class:"btn btn-default")%>
+      <% else %>
+      <%= link_to("Publish",is_hidden_admin_job_path(job), :method => :post, class:"btn btn-default")%>
+      <% end %>
+    </td>
+    <td>
       <%= link_to("Edit", edit_admin_job_path(job)) %> |
       <%= link_to("Destroy", admin_job_path(job), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-
     </td>
   </tr>
   <% end %>
