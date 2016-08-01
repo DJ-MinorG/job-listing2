@@ -29,9 +29,13 @@
     </td>
     <td>
       <% if job.is_hidden %>
+      <%= content_tag(:span, "", :class => "fa fa-lock")%>
       <%= link_to("Hidden",is_hidden_admin_job_path(job), :method => :post, class:"btn btn-default")%>
+
       <% else %>
+      <%= content_tag(:span, "", :class => "fa fa-globe")%>
       <%= link_to("Publish",is_hidden_admin_job_path(job), :method => :post, class:"btn btn-default")%>
+
       <% end %>
     </td>
     <td>
