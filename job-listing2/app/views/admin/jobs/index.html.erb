@@ -15,14 +15,20 @@
         Hidden/Publish
       </td>
       <td>
-
+        Resume count
       </td>
+      <td>
+        Publish time
+      </td>
+      <td>Edit|Delete
+      </td>
+
     </tr>
 
   <% @jobs.each do |job| %>
   <tr>
     <td>
-      <%= link_to(job.title,admin_job_path(job)) %>
+      <%= link_to(job.title, admin_job_resumes_path(job)) %>
     </td>
     <td>
       <%= job.created_at %>
@@ -37,6 +43,13 @@
       <%= link_to("Publish",is_hidden_admin_job_path(job), :method => :post, class:"btn btn-default")%>
 
       <% end %>
+    </td>
+    <td>
+      <%= job.resumes.count %>
+    </td>
+
+    <td>
+      <%= job.created_at %>
     </td>
     <td>
       <%= link_to("Edit", edit_admin_job_path(job)) %> |
